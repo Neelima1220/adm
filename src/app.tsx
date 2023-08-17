@@ -6,8 +6,7 @@ import { SpinnerIcon } from "./assets/icons"
 const Home = lazy(() => import('./pages/home'))
 
 const App = () => {
-    return (
-        <div>          
+    return (      
             <Suspense fallback={<div style={{ height: '100vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily:'Roboto' }}><SpinnerIcon /></div>}>
                 <BrowserRouter>
                     <Routes>
@@ -16,7 +15,6 @@ const App = () => {
                     </Routes>
                 </BrowserRouter>
             </Suspense>
-        </div>
     )
 }
 

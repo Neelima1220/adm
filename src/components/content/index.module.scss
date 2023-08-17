@@ -1,0 +1,52 @@
+@import '../../theme/mixins.scss';
+@import '../../theme/variables.scss';
+
+.container{
+    width: calc(100% - 350px);
+    background-color: $black-semi;
+    overflow: auto;
+    height: 100vh;
+    // margin-bottom: 40px;
+}
+
+.searchContainer{
+    max-width: 320px;     
+    height: 50px;
+}
+.searchInput{
+    height: 100%;
+    width: 320px;
+    border-radius: 10px;  
+}
+
+.contentContainer{
+    padding: 40px;
+    background-image: linear-gradient(to bottom right, rgba(45,48,56,1), rgba(45,48,56,0));
+
+}
+
+.title{
+    @include font-style;
+    font-size: 64px;
+    color:$white;
+}
+.email{
+    @include font-style;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-gray;
+    margin-bottom: 16px;
+}
+.inputTitle{
+    @include font-style;
+    text-transform: uppercase;
+    line-height: 24px;
+    color: $text-gray;
+    margin-bottom: 8px;
+}
+.boxesInput{
+    height: 50px;
+    width: 320px;
+    border-radius: 10px;
+    padding-left: 16px;
+}

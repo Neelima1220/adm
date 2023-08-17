@@ -1,6 +1,6 @@
 import React from 'react'
-import { SearchIcon } from "../../assets/icons"
-import LogoIcon from '../../assets/images/Logo.png';
+import { MenuIcon, SearchIcon } from "../../assets/icons"
+import Logo from '../../assets/images/Logo.png';
 import styles from './index.module.scss'
 
 type Props = {}
@@ -8,7 +8,10 @@ type Props = {}
 const Sidebar = (props: Props) => {
     return (
         <div className={styles.container}>
-            <img src={LogoIcon} alt="logo" className={styles.logo} />
+            <div className={styles.logoContainer}>
+            <img src={Logo} alt="logo" className={styles.logo} />
+            <MenuIcon style={{display:'block'}}/>
+            </div>
             <div className={styles.listContainer}>
                 <h3 className={styles.title}>
                     shipment list

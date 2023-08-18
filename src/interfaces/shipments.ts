@@ -9,9 +9,9 @@ export interface IInitialState {
   data: Ishipment[];
   isLoading: boolean;
   filteredData: Ishipment[];
-  shipment: Ishipment;
+  selectedShipment: Ishipment;
   searchValue: string;
   cargoBaysCount: number;
   cargoInput: string;
-  error: string;
+  shipmentId:string
 }

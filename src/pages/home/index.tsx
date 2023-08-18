@@ -11,6 +11,9 @@ const Home = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
+  // console.log("shipmentData",)
+
+
   useEffect(() => {
     dispatch(fetchShipments())
   }, [])

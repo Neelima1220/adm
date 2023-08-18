@@ -1,23 +1,30 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { fetchShipments } from './actions';
-import { IInitialState, Ishipment } from "../../interfaces/shipments";
+import { fetchShipments, selectShipment } from './actions';
+import { IInitialState } from '../../interfaces/shipments';
 
 const initialState: IInitialState = {
   data: [],
   isLoading: false,
   filteredData: [],
-  shipment:null,
-  searchValue:'',
-  cargoBaysCount:null,
-  cargoInput:'',
-  error:''
+  selectedShipment: null,
+  searchValue: '',
+  cargoBaysCount: null,
+  cargoInput: '',
+  shipmentId: null,
 };
 
-const shipmentsReducer = createReducer(initialState, shipments =>{
-    shipments.addCase(fetchShipments.fulfilled, (state, {payload}) =>{
-        return {...state, data:payload, }
-    })
-    
-})
+const shipmentsReducer = createReducer(initialState, (shipments) => {
+  shipments.addCase(fetchShipments.pending, (state, _) => {
+    state.isLoading = true;
+  });
+  shipments.addCase(fetchShipments.fulfilled, (state, { payload }) => {
+    state.data = payload;
+    state.shipmentId = payload[0].id;
+    state.isLoading = false;
+  });
+  shipments.addCase(selectShipment, (state, { payload }) => {
+    state.shipmentId = payload;
+  });
+});
 
-export default shipmentsReducer
+export default shipmentsReducer;

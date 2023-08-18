@@ -6,10 +6,11 @@ export const fetchShipments = createAsyncThunk(
     async (arg: void, { rejectWithValue }) => {
         try {
             const result = await API.get('')
-            console.log(result)
-            return result
+            return result.data
         } catch (e) {
             rejectWithValue(e)
         }
     },
 )
+
+export const selectShipment = createAction<string>('shipments/selectShipment')

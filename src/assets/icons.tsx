@@ -104,20 +104,16 @@ export const MenuIcon = ({
 
     )
 }
-// export const CloseIcon = ({
-//     onClick,
-//     style,
-//     width,
-//     height,
-// }: IDefaultSvgSettings) => {
-//     return (
-//         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width={width || "30"} height={height || "22"} viewBox="0 0 30 22" xmlSpace="preserve"  {...{ onClick, style }}>
-//             <defs>
-//             </defs>
-//             <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-//                 <path d="M 47.098 45 L 89.565 2.532 c 0.58 -0.579 0.58 -1.519 0 -2.098 c -0.579 -0.58 -1.518 -0.58 -2.098 0 L 45 42.902 L 2.532 0.435 c -0.58 -0.58 -1.518 -0.58 -2.098 0 c -0.58 0.579 -0.58 1.519 0 2.098 L 42.902 45 L 0.435 87.468 c -0.58 0.579 -0.58 1.518 0 2.098 C 0.724 89.855 1.104 90 1.484 90 s 0.759 -0.145 1.049 -0.435 L 45 47.098 l 42.468 42.468 c 0.29 0.29 0.669 0.435 1.049 0.435 s 0.759 -0.145 1.049 -0.435 c 0.58 -0.58 0.58 -1.518 0 -2.098 L 47.098 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " strokeLinecap="round" />
-//             </g>
-//         </svg>
-
-//     )
-// }
+export const CloseIcon = ({
+    onClick,
+    style,
+    width,
+    height,
+}: IDefaultSvgSettings) => {
+    return (
+        <svg width={width || "24"} height={height || "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...{ onClick, style }}>
+            <rect x="0.686523" y="21.8995" width="30" height="2" transform="rotate(-45 0.686523 21.8995)" fill="white" />
+            <rect x="2.10059" y="0.686279" width="30" height="2" transform="rotate(45 2.10059 0.686279)" fill="white" />
+        </svg>
+    )
+}

@@ -8,11 +8,16 @@
   padding: 40px;
   overflow: hidden;
   display: block;
+  transition: 0.5s;
   @include md {
-    display: none;
     max-width: 100%;
-    padding: 20px;
+    padding: 0px;
+    width: 0;
   }
+}
+.mobileContainer{
+  width: 100%;
+  padding: 24px;
 }
 .logoContainer {
   display: flex;
@@ -65,4 +70,9 @@
     rgba(45, 48, 56, 0),
     rgba(45, 48, 56, 1)
   );
+}
+.notFound{
+  @include font-style;
+  font-size: 32px;
+  color: $text-red;
 }

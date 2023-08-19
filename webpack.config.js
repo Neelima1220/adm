@@ -1,14 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+
+
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 
 module.exports = {
-  mode: 'development', // Set this to 'production' for production builds
+  mode: isDevelopment ? 'development' : 'production',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: 'only',
   },
   module: {
     rules: [
@@ -46,3 +55,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.css'],
   },
 };
+
+if (isDevelopment) {
+  module.exports.plugins.push(
+    new ReactRefreshPlugin(),
+  )
+}

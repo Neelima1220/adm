@@ -5,13 +5,15 @@ import styles from './index.module.scss'
 import { useSelector } from "react-redux";
 import { selectShipmentData } from "../../redux/shipments/selector";
 import useHelper from "./useHelper";
+import { Link } from 'react-router-dom';
 
-type Props = {}
 
-const Sidebar = (props: Props) => {
-    const { data, shipmentId } = useSelector(selectShipmentData);
+
+const Sidebar = () => {
+    const { data, shipmentId, filteredData } = useSelector(selectShipmentData);
     const { handleSelectShipment } = useHelper();
-    console.log(data, "shipmentData", shipmentId)
+    console.log(filteredData, 'shipmentId')
+
 
     return (
         <div className={styles.container}>
@@ -24,9 +26,10 @@ const Sidebar = (props: Props) => {
                     shipment list
                 </h3>
                 <ul className={styles.list}>
-                    {data && data.map(({ name, id }, _) => {
-                        return <li key={id} className={id === shipmentId ? `${styles.listItem} ${styles.active}` : styles.listItem} onClick={() => handleSelectShipment(id)}>{name}</li>
-                    })}
+                    {filteredData.length >0 ? filteredData.map(({ name, id }, _) => {
+                        const paramId = name?.replaceAll(' ','-')
+                        return <Link key={id} to ={`/${paramId}`}className={id === shipmentId ? `${styles.listItem} ${styles.active}` : styles.listItem} onClick={() => handleSelectShipment(id)}>{name}</Link>
+                    }):<p>data not found</p>}
                 </ul>
             </div>
         </div>

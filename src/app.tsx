@@ -7,11 +7,12 @@ const Home = lazy(() => import('./pages/home'))
 
 const App = () => {
     return (      
-            <Suspense fallback={<div style={{ height: '100vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily:'Roboto', fontSize:'5rem' }}><SpinnerIcon /></div>}>
+            <Suspense fallback={<div style={{ height: '100vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily:'Roboto' }}><SpinnerIcon /></div>}>
                 <BrowserRouter>
                     <Routes>
-                        <Route path='*' element={<PageNotFound />} />
                         <Route path="/" element={<Home />} />
+                        <Route path="/:id" element={<Home />} />
+                        <Route path='*' element={<PageNotFound />} />
                     </Routes>
                 </BrowserRouter>
             </Suspense>

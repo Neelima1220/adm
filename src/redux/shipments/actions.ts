@@ -14,3 +14,5 @@ export const fetchShipments = createAsyncThunk(
 )
 
 export const selectShipment = createAction<string>('shipments/selectShipment')
+export const changeCargoInput = createAction<string>('shipments/changeCargoInput')
+export const searchShipments = createAction<string>('shipments/searchShipments')

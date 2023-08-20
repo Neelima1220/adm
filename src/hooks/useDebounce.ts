@@ -1,12 +1,12 @@
-const useDebounce = (callback: Function, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return (...args: any[]) => {
-      clearTimeout(timeoutId);
+const useDebounce = (callback: (...args: any[]) => void, delay: number) => {
+  let timeoutId: NodeJS.Timeout;
+  return (...args: any[]) => {
+    clearTimeout(timeoutId);
   
-      timeoutId = setTimeout(() => {
-        callback(...args);
-      }, delay);
-    };
+    timeoutId = setTimeout(() => {
+      callback(...args);
+    }, delay);
   };
+};
 
-  export default useDebounce;
+export default useDebounce;

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { selectShipmentData } from "../../redux/shipments/selector";
@@ -19,7 +19,7 @@ const useHelper = () => {
   
     useEffect(() => {
       dispatch(fetchShipments())
-    }, [])
+    }, [dispatch])
   
   
     useEffect(() => {
@@ -30,7 +30,7 @@ const useHelper = () => {
         navigate(`/${paramId}`);
       }
   
-    }, [id, shipmentId, selectedShipment, navigate]);
+    }, [id, shipmentId, selectedShipment, navigate,dispatch]);
   
 
     useEffect(() => {

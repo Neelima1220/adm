@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectShipmentData } from '../../redux/shipments/selector';
 import useHelper from './useHelper';
-import Logo from '../../assets/images/Logo.png';
+import Logo from '../../assets/images/logo.png';
 import { MenuIcon, SearchIcon } from '../../assets/icons';
 import styles from './index.module.scss';
 import { Icomponent } from '../../interfaces/appState';
@@ -10,7 +10,7 @@ import { Icomponent } from '../../interfaces/appState';
 const Content = ({ isMobile, showShipments, setShowShipments }: Icomponent) => {
   const { selectedShipment, cargoInput, cargoBaysCount, searchValue, data, shipmentId } =
     useSelector(selectShipmentData);
-    
+
   const { handleBoxesChange, handleSearchShipments, handleSelectShipmentMobile } = useHelper();
 
   return (

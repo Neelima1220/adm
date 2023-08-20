@@ -20,7 +20,7 @@ const initialState: IInitialState = {
 };
 
 const shipmentsReducer = createReducer(initialState, (shipments) => {
-  shipments.addCase(fetchShipments.pending, (state, _) => {
+  shipments.addCase(fetchShipments.pending, (state, ) => {
     state.isLoading = true;
   });
 
@@ -39,7 +39,7 @@ const shipmentsReducer = createReducer(initialState, (shipments) => {
   });
 
   shipments.addCase(selectShipment, (state, { payload }) => {
-    const tempShipment = state.data.find(({ id }, _) => id === payload);
+    const tempShipment = state.data.find(({ id },) => id === payload);
     state.shipmentId = payload;
     state.selectedShipment = tempShipment;
     state.cargoInput = tempShipment?.boxes || String(0);

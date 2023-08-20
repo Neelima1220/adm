@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectShipmentData } from '../../redux/shipments/selector';
 import useHelper from './useHelper';
-import Logo from '../../assets/images/Logo.png';
+import Logo from '../../assets/images/logo.png';
 import { CloseIcon } from '../../assets/icons';
 import styles from './index.module.scss';
 import { Icomponent } from '../../interfaces/appState';

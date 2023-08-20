@@ -1,21 +1,28 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectShipmentData } from '../../redux/shipments/selector';
 import useHelper from './useHelper';
 import Logo from '../../assets/images/Logo.png';
 import { MenuIcon, SearchIcon } from '../../assets/icons';
 import styles from './index.module.scss';
-import { Icomponent } from "../../interfaces/appState";
+import { Icomponent } from '../../interfaces/appState';
 
 const Content = ({ isMobile, showShipments, setShowShipments }: Icomponent) => {
-  const { selectedShipment, cargoInput, cargoBaysCount, searchValue, data, shipmentId } = useSelector(selectShipmentData);
+  const { selectedShipment, cargoInput, cargoBaysCount, searchValue, data, shipmentId } =
+    useSelector(selectShipmentData);
+    
   const { handleBoxesChange, handleSearchShipments, handleSelectShipmentMobile } = useHelper();
 
-
   return (
-    <div className={!showShipments ? `${styles.mobileContainer} ${styles.container}` : styles.container}>
+    <div className={`${styles.container} ${showShipments ? '' : styles.mobileContainer}`}>
       <div className={styles.mobileLogoContainer}>
         <img src={Logo} alt="logo" className={styles.logo} />
-        <MenuIcon style={{ cursor: 'pointer' }} onClick={() => { setShowShipments(true) }} />
+        <MenuIcon
+          style={{ cursor: 'pointer' }}
+          onClick={() => {
+            setShowShipments(true);
+          }}
+        />
       </div>
       <div className={styles.searchContainer}>
         {isMobile ? <select className={styles.searchInput} onChange={handleSelectShipmentMobile} value={shipmentId} >
@@ -34,7 +41,12 @@ const Content = ({ isMobile, showShipments, setShowShipments }: Icomponent) => {
 
         <div>
           <h3 className={styles.inputTitle}>Cargo Boxes</h3>
-          <input type="text" className={styles.boxesInput} value={cargoInput} onChange={handleBoxesChange} />
+          <input
+            type="text"
+            className={styles.boxesInput}
+            value={cargoInput}
+            onChange={handleBoxesChange}
+          />
         </div>
 
         <div className={styles.cargoContainer}>
